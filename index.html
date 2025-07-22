@@ -82,6 +82,17 @@
             transform: translateY(-2px);
         }
         
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
         .text-center {
             text-align: center;
         }
@@ -238,7 +249,163 @@
             color: var(--gray);
         }
         
-        /* Success Stories */
+        /* Job Listings Section */
+        .job-listings {
+            background-color: #f8f9fa;
+        }
+        
+        .job-filters {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-group {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .filter-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .filter-group select, 
+        .filter-group input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        
+        .job-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .job-header {
+            padding: 25px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .job-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .job-company {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+        
+        .job-location {
+            color: var(--gray);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .job-meta {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .job-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .job-meta-item i {
+            color: var(--primary);
+        }
+        
+        .job-type {
+            background-color: #e8f0fe;
+            color: var(--primary);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        .job-body {
+            padding: 25px;
+            flex-grow: 1;
+        }
+        
+        .job-description {
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+        
+        .job-skills {
+            margin-top: 20px;
+        }
+        
+        .skills-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .skill-tag {
+            display: inline-block;
+            background-color: #f0f0f0;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .job-footer {
+            padding: 20px 25px;
+            background-color: #f9f9f9;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .job-posted {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .view-more-jobs {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        /* Success Stories Section */
         .success-stories {
             background: #f8f9fa;
         }
@@ -329,6 +496,114 @@
             color: var(--primary);
             font-size: 2.5rem;
             margin-bottom: 10px;
+        }
+        
+        /* Job Application Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 50px auto;
+            width: 90%;
+            max-width: 700px;
+            border-radius: 8px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+            animation: modalFadeIn 0.3s ease;
+        }
+        
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .modal-header {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-header h3 {
+            margin: 0;
+            color: var(--primary);
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+        }
+        
+        .modal-body {
+            padding: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+        }
+        
+        .file-upload {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .file-upload-btn {
+            background-color: #f0f0f0;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        .file-name {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .modal-footer {
+            padding: 20px;
+            border-top: 1px solid #eee;
+            text-align: right;
         }
         
         /* CTA Section */
@@ -495,6 +770,14 @@
             .hamburger {
                 display: block;
             }
+            
+            .job-filters {
+                flex-direction: column;
+            }
+            
+            .jobs-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -506,6 +789,7 @@
                 <a href="#" class="logo">Global Labour Experts</a>
                 <ul class="nav-links">
                     <li><a href="#services">Services</a></li>
+                    <li><a href="#job-listings">Job Listings</a></li>
                     <li><a href="#success-stories">About Us</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
@@ -521,7 +805,10 @@
         <div class="container">
             <h1 class="animat">Connecting Top Talent with Exceptional Opportunities</h1>
             <p class="animate" style="animation-delay: 0.2s">We specialize in finding the perfect match between talented professionals and forward-thinking companies. From executive search to permanent placement, we deliver recruitment solutions that drive success.</p>
-            <a href="contact.html" class="btn animate" style="animation-delay: 0.4s">Contact Us</a>
+            <div style="display: flex; gap: 15px; justify-content: center;">
+                <a href="#job-listings" class="btn animate" style="animation-delay: 0.4s">Browse Jobs</a>
+                <a href="contact.html" class="btn btn-outline animate" style="animation-delay: 0.4s">Contact Us</a>
+            </div>
             
             <div class="stats animate" style="animation-delay: 0.6s">
                 <div class="stat-item">
@@ -584,6 +871,129 @@
                     </ul>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Job Listings Section -->
+    <section id="job-listings" class="job-listings">
+        <div class="container">
+            <div class="section-title animate fade-in">
+                <h2>Current Job Openings</h2>
+                <p>Browse our latest job opportunities across various industries and locations. Find your perfect career match today.</p>
+            </div>
+            
+            
+            
+            <div class="jobs-grid">
+                <div class="job-card animate" style="animation-delay: 0.3s">
+                    <div class="job-header">
+                        <h3 class="job-title">Senior Software Engineer</h3>
+                        <p class="job-company">Tech Innovations Ltd</p>
+                        <p class="job-location"><i class="fas fa-map-marker-alt"></i> Manchester / Remote</p>
+                        <div class="job-meta">
+                            <span class="job-meta-item"><i class="fas fa-pound-sign"></i> £65,000 - £80,000</span>
+                            <span class="job-meta-item"><i class="far fa-clock"></i> Full-time</span>
+                        </div>
+                        <span class="job-type">Technology</span>
+                    </div>
+                    <div class="job-body">
+                        <p class="job-description">We're looking for an experienced Senior Software Engineer to join our growing team. You'll be working on cutting-edge projects using modern technologies and helping to shape our technical direction.</p>
+                        <div class="job-skills">
+                            <p class="skills-title">Key Skills:</p>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">AWS</span>
+                        </div>
+                    </div>
+                    <div class="job-footer">
+                        <p class="job-posted">Posted 3 days ago</p>
+                        <a href="contact.html"><button class="btn apply-btn" data-job="Senior Software Engineer">Apply Now</button></a>
+                    </div>
+                </div>
+                
+                <div class="job-card animate" style="animation-delay: 0.4s">
+                    <div class="job-header">
+                        <h3 class="job-title">Marketing Manager</h3>
+                        <p class="job-company">Global Brand Solutions</p>
+                        <p class="job-location"><i class="fas fa-map-marker-alt"></i> London</p>
+                        <div class="job-meta">
+                            <span class="job-meta-item"><i class="fas fa-pound-sign"></i> £45,000 - £55,000</span>
+                            <span class="job-meta-item"><i class="far fa-clock"></i> Full-time</span>
+                        </div>
+                        <span class="job-type">Marketing</span>
+                    </div>
+                    <div class="job-body">
+                        <p class="job-description">Exciting opportunity for a creative Marketing Manager to lead our digital marketing campaigns. You'll develop strategies, manage social media, and drive brand awareness across multiple channels.</p>
+                        <div class="job-skills">
+                            <p class="skills-title">Key Skills:</p>
+                            <span class="skill-tag">Digital Marketing</span>
+                            <span class="skill-tag">Social Media</span>
+                            <span class="skill-tag">Content Strategy</span>
+                            <span class="skill-tag">SEO/SEM</span>
+                        </div>
+                    </div>
+                    <div class="job-footer">
+                        <p class="job-posted">Posted 1 week ago</p>
+                        <a href="contact.html"><button class="btn apply-btn" data-job="Marketing Manager">Apply Now</button></a>
+                    </div>
+                </div>
+                
+                <div class="job-card animate" style="animation-delay: 0.5s">
+                    <div class="job-header">
+                        <h3 class="job-title">Registered Nurse</h3>
+                        <p class="job-company">City General Hospital</p>
+                        <p class="job-location"><i class="fas fa-map-marker-alt"></i> Birmingham</p>
+                        <div class="job-meta">
+                            <span class="job-meta-item"><i class="fas fa-pound-sign"></i> £32,000 - £38,000</span>
+                            <span class="job-meta-item"><i class="far fa-clock"></i> Full-time</span>
+                        </div>
+                        <span class="job-type">Healthcare</span>
+                    </div>
+                    <div class="job-body">
+                        <p class="job-description">Join our team of dedicated healthcare professionals. We're seeking compassionate Registered Nurses to provide high-quality patient care in our busy hospital environment.</p>
+                        <div class="job-skills">
+                            <p class="skills-title">Key Skills:</p>
+                            <span class="skill-tag">Patient Care</span>
+                            <span class="skill-tag">Clinical Skills</span>
+                            <span class="skill-tag">Teamwork</span>
+                            <span class="skill-tag">NMC Registration</span>
+                        </div>
+                    </div>
+                    <div class="job-footer">
+                        <p class="job-posted">Posted 2 days ago</p>
+                        <a href="contact.html"><button class="btn apply-btn" data-job="Registered Nurse">Apply Now</button></a>
+                    </div>
+                </div>
+                
+                <div class="job-card animate" style="animation-delay: 0.6s">
+                    <div class="job-header">
+                        <h3 class="job-title">Financial Analyst</h3>
+                        <p class="job-company">Capital Investments Group</p>
+                        <p class="job-location"><i class="fas fa-map-marker-alt"></i> London / Hybrid</p>
+                        <div class="job-meta">
+                            <span class="job-meta-item"><i class="fas fa-pound-sign"></i> £50,000 - £65,000</span>
+                            <span class="job-meta-item"><i class="far fa-clock"></i> Full-time</span>
+                        </div>
+                        <span class="job-type">Finance</span>
+                    </div>
+                    <div class="job-body">
+                        <p class="job-description">We're seeking a detail-oriented Financial Analyst to join our team. You'll be responsible for financial modeling, market research, and providing strategic recommendations to senior management.</p>
+                        <div class="job-skills">
+                            <p class="skills-title">Key Skills:</p>
+                            <span class="skill-tag">Financial Modeling</span>
+                            <span class="skill-tag">Excel</span>
+                            <span class="skill-tag">Data Analysis</span>
+                            <span class="skill-tag">Investment Research</span>
+                        </div>
+                    </div>
+                    <div class="job-footer">
+                        <p class="job-posted">Posted 5 days ago</p>
+                        <a href="contact.html"><button class="btn apply-btn" data-job="Financial Analyst">Apply Now</button></a>
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </section>
 
@@ -710,7 +1120,7 @@
                 </div>
                 <div class="footer-col">
                     <h3>Contact Us</h3>
-                    <p><i class="fas fa-envelope"></i> globalaboursxpert@gmail.com</p>
+                    <p><i class="fas fa-envelope"></i>globallabourexperts@gmail.com</p>
                     <p><i class="fas fa-phone"></i> +447459712886</p>
                     <p><i class="fas fa-map-marker-alt"></i> 12 Ethel Street Oldham, England, OL8 3EZ</p>
                 </div>
