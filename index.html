@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Labour Experts - Recruitment Agency</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #0056b3; /* Darker blue for more professional look */
+            --primary-dark: #003d7a;
+            --secondary: #ffc107; /* Gold accent */
+            --dark: #212529;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --success: #28a745;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #fff;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h1, h2, h3 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            font-size: 2rem;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 180px 0 100px;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            animation: fadeInUp 1s ease 0.2s forwards;
+            opacity: 0;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 60px;
+            animation: fadeIn 1s ease 0.4s forwards;
+            opacity: 0;
+        }
+        
+        .stat-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            padding: 20px 30px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .stat-item h3 {
+            color: white;
+            margin-bottom: 5px;
+        }
+        
+        .stat-item p {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 40px 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .service-card ul {
+            list-style-position: inside;
+            margin-top: 20px;
+            text-align: left;
+        }
+        
+        .service-card li {
+            margin-bottom: 8px;
+            color: var(--gray);
+        }
+        
+        /* Success Stories */
+        .success-stories {
+            background: #f8f9fa;
+        }
+        
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .story-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .story-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .story-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .story-content {
+            padding: 30px;
+        }
+        
+        .story-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .story-header .icon {
+            color: var(--secondary);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .story-header h4 {
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+        
+        .story-stats {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .story-stat {
+            text-align: center;
+        }
+        
+        .story-stat h4 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .story-stat p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        
+        /* Results Section */
+        .results {
+            background-color: white;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .result-item {
+            padding: 30px;
+        }
+        
+        .result-item h3 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, #f0f7ff 0%, #d0e3ff 100%);
+            text-align: center;
+        }
+        
+        .cta h2 {
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+        
+        .feature {
+            padding: 20px;
+        }
+        
+        .feature i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-col p, .footer-col a {
+            color: var(--gray);
+            margin-bottom: 15px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-col a:hover {
+            color: white;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .animate {
+            opacity: 0;
+        }
+        
+        .fade-in {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.7rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .stats {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 40px 0;
+                transition: left 0.3s ease;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header style="background-color: #dbeaff;">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Global Labour Experts</a>
+                <ul class="nav-links">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#success-stories">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="animat">Connecting Top Talent with Exceptional Opportunities</h1>
+            <p class="animate" style="animation-delay: 0.2s">We specialize in finding the perfect match between talented professionals and forward-thinking companies. From executive search to permanent placement, we deliver recruitment solutions that drive success.</p>
+            <a href="contact.html" class="btn animate" style="animation-delay: 0.4s">Contact Us</a>
+            
+            <div class="stats animate" style="animation-delay: 0.6s">
+                <div class="stat-item">
+                    <h3>5,000+</h3>
+                    <p>Placements</p>
+                </div>
+                <div class="stat-item">
+                    <h3>98%</h3>
+                    <p>Success Rate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title animate fade-in">
+                <h2>Complete Recruitment Solutions</h2>
+                <p>From executive search to temporary staffing, we provide comprehensive recruitment services that connect the right talent with the right opportunities across all industries.</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card animate" style="animation-delay: 0.2s">
+                    <div class="service-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Permanent Placement</h3>
+                    <p>Find the perfect long-term match for your organization. We specialize in placing top-tier professionals in permanent roles across all levels and industries.</p>
+                    <ul>
+                        <li>Executive & Management Roles</li>
+                        <li>Specialist Positions</li>
+                        <li>Cultural Fit Assessment</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card animate" style="animation-delay: 0.4s">
+                    <div class="service-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Temporary Staffing</h3>
+                    <p>Flexible workforce solutions for immediate needs. Access skilled professionals for short-term projects, seasonal work, or interim coverage.</p>
+                    <ul>
+                        <li>Project-Based Staffing</li>
+                        <li>Seasonal Coverage</li>
+                        <li>Temp-to-Perm Options</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card animate" style="animation-delay: 0.6s">
+                    <div class="service-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Executive Search</h3>
+                    <p>Premium search services for senior-level positions. Our expert headhunters identify and attract C-suite executives and senior leadership talent.</p>
+                    <ul>
+                        <li>C-Suite Executives</li>
+                        <li>Board Members</li>
+                        <li>Confidential Search</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories Section -->
+    <section id="success-stories" class="success-stories">
+        <div class="container">
+            <div class="section-title animate fade-in">
+                <h2>Recruitment Success Stories</h2>
+                <p>Discover how we've helped companies find exceptional talent and professionals secure their dream careers. Our proven track record speaks for itself.</p>
+            </div>
+            
+            <div class="stories-grid">
+                <div class="story-card animate" style="animation-delay: 0.2s">
+                    <div class="story-image" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="story-content">
+                        <div class="story-header">
+                            <span class="icon"><i class="fas fa-star"></i></span>
+                            <h4>Fortune 500 Company • 50 Placements</h4>
+                        </div>
+                        <h3>Global Expansion Talent Acquisition</h3>
+                        <p>Helped a multinational corporation rapidly scale their operations by identifying and placing 50+ skilled professionals across multiple departments within 90 days, enabling successful market expansion.</p>
+                        <div class="story-stats">
+                            <div class="story-stat">
+                                <h4>90</h4>
+                                <p>Days</p>
+                            </div>
+                            <div class="story-stat">
+                                <h4>50+</h4>
+                                <p>Placements</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="story-card animate" style="animation-delay: 0.4s">
+                    <div class="story-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="story-content">
+                        <div class="story-header">
+                            <span class="icon"><i class="fas fa-star"></i></span>
+                            <h4>Tech Startup • C-Suite Hire</h4>
+                        </div>
+                        <h3>Strategic Executive Placement</h3>
+                        <p>Successfully identified and placed a seasoned CTO for a high-growth tech startup, resulting in a 200% increase in product development velocity and securing $50M Series B funding.</p>
+                        <div class="story-stats">
+                            <div class="story-stat">
+                                <h4>200%</h4>
+                                <p>Growth Increase</p>
+                            </div>
+                            <div class="story-stat">
+                                <h4>$50M</h4>
+                                <p>Funding Secured</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results">
+        <div class="container">
+            <div class="section-title animate fade-in">
+                <h2>Delivering Outstanding Results</h2>
+                <p>Our data-driven recruitment approach ensures every placement is a perfect match</p>
+            </div>
+            
+            <div class="results-grid">
+                <div class="result-item animate" style="animation-delay: 0.2s">
+                    <h3 class="counter" data-target="5000">0</h3>
+                    <p>Successful Placements</p>
+                </div>
+                <div class="result-item animate" style="animation-delay: 0.4s">
+                    <h3 class="counter" data-target="500">0</h3>
+                    <p>Partner Companies</p>
+                </div>
+                <div class="result-item animate" style="animation-delay: 0.6s">
+                    <h3 class="counter" data-target="98">0</h3>
+                    <p>Success Rate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2 class="animate fade-in">Ready to Find Your Perfect Match?</h2>
+            <p class="animate" style="animation-delay: 0.2s">Whether you're a company seeking exceptional talent or a professional looking for your dream career, we're here to make the perfect connection happen.</p>
+            <a href="contact.html" class="btn animate" style="animation-delay: 0.4s">Get Started</a>
+            
+            <div class="features">
+                <div class="feature animate" style="animation-delay: 0.2s">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Expert Recruiters</h3>
+                    <p>Experienced recruitment specialists who understand your industry and hiring needs</p>
+                </div>
+                <div class="feature animate" style="animation-delay: 0.4s">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Proven Success</h3>
+                    <p>98% placement success rate with 5,000+ successful matches across all industries</p>
+                </div>
+                <div class="feature animate" style="animation-delay: 0.6s">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Personal Service</h3>
+                    <p>Dedicated account management and ongoing support throughout the entire process</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Global Labour Experts</h3>
+                    <p>Connecting exceptional talent with outstanding opportunities. We deliver comprehensive recruitment and staffing solutions that create perfect matches between professionals and companies.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> globalaboursxpert@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +447459712886</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 12 Ethel Street Oldham, England, OL8 3EZ</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <a href="#services">Services</a>
+                    <a href="#success-stories">About Us</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 Global Labour Experts. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Scroll animations
+        const animateElements = document.querySelectorAll('.animate');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const animationDelay = entry.target.style.animationDelay || '0s';
+                    entry.target.style.animationDelay = animationDelay;
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        animateElements.forEach(element => {
+            observer.observe(element);
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Counter animation
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200;
+        
+        function animateCounters() {
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const increment = target / speed;
+                
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(animateCounters, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            });
+        }
+        
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+        
+        counters.forEach(counter => {
+            counterObserver.observe(counter);
+        });
+    </script>
+</body>
+</html>
